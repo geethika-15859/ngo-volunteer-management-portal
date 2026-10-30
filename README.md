@@ -56,36 +56,6 @@ Open the URL printed by Vite, usually http://localhost:5173.
 - `POST /api/events` — add event
 - `POST /api/events/:id/register` — register a volunteer for an event
 
-## Deploy
 
-### MongoDB Atlas
-1. Create a free cluster at https://www.mongodb.com/atlas.
-2. Create a database user and allow network access for your deployment (Atlas docs explain IP access rules).
-3. Copy the connection string and replace `<password>` with your database user's password.
-4. Do not commit `.env` or expose your database connection string publicly.
 
-### Backend on Render
-1. Push this project to a public GitHub repository.
-2. In Render, create **New > Web Service** and connect the repository.
-3. Set **Root Directory** to `server`.
-4. Build command: `npm install`
-5. Start command: `npm start`
-6. Add environment variable `MONGODB_URI` with your Atlas connection string.
-7. Add `CLIENT_URL` with your deployed Vercel frontend URL after frontend deployment (for example `https://your-project.vercel.app`).
-8. Deploy. Test `https://YOUR-API.onrender.com/api/health`.
 
-### Frontend on Vercel
-1. Import the same GitHub repository into Vercel.
-2. Set **Root Directory** to `client`.
-3. Add environment variable `VITE_API_URL` with `https://YOUR-API.onrender.com/api`.
-4. Deploy and open the generated `.vercel.app` URL.
-5. If you change environment variables, redeploy.
-
-## Before submission
-- Test volunteer registration and event registration on the live site.
-- Ensure GitHub repository visibility is **Public**.
-- Keep README, GitHub link, and live URL ready for your instructor's Google Form.
-- Free hosting plans may sleep or have usage limits.
-
-## Important limitations
-This is a student demonstration, not a production-ready system. Admin routes are not protected by authentication/authorization. Do not use real sensitive volunteer information until authentication, validation, rate limiting, and privacy controls are added.
